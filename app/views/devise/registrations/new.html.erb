@@ -1,27 +1,38 @@
-<h2>登録</h2>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <div class="card mt-4">
+      <div class="card-body">
+        <h2 class="text-center">登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "お名前" %>
+          <div class="mt-3">
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "お名前", class: "form-control" %>
+          </div>
+
+          <div class="mt-3">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+          </div>
+
+          <div class="mt-3">
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード(6文字以上)", class: "form-control" %>
+          </div>
+
+          <div class="mt-3">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認", class: "form-control" %>
+          </div>
+
+          <div class="mt-3 text-center">
+            <%= f.submit "登録する", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+        <hr>
+        <div class="text-center">
+        <%= link_to "ログインする", new_user_session_path %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
-  </div>
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード(6文字以上)" %>
-  </div>
-
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録する" %>
-  </div>
-<% end %>
-
-<%= link_to "ログインする", new_user_session_path %>
+</div>
