@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'pry-byebug'
 gem 'pry-rails'
+gem 'carrierwave', '~> 2.0'
+gem "mini_magick"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

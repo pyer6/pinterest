@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <div class="mt-4 card">
+      <h2 class="card-header text-center">投稿</h2>
+      <div class="card-body">
+        <%= form_with(model: @post, local: true) do |f| %>
+          <%= f.fields_for :photos do |i| %>
+            <%= i.file_field :image %>
+          <% end %>
+          <div class="mt-3">
+            <%= f.text_area :caption, class: "form-control", placeholder: "説明を書く" %>
+          </div>
+          <div class="mt-3 text-center">
+            <%= f.submit "投稿", class: "btn btn-primary form-control" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
