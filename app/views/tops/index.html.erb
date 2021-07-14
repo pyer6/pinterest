@@ -1,2 +1,24 @@
-<h1>Tops#index</h1>
-<p>Find me in app/views/tops/index.html.erb</p>
+<div class="row">
+  <div class="col-sm-10 offset-sm-1">
+    <div class="row mt-4">
+      <% @posts.each do |post| %>
+        <div class="col-sm-4">
+          <div class="card">
+            <%= link_to post_path(post) do %>
+              <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
+            <% end %>
+            <div id="post_<%= post.id %>">
+              <%= render "posts/like", post: post %>
+            </div>
+
+            <div class="card-body">
+              <%= post.caption %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <%= will_paginate @posts, :previous_label => ' &lt 前へ |', :next_label => '| 次へ &gt' %>
+    </div>
+  </div>
+</div>

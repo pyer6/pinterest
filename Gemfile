@@ -27,6 +27,8 @@ gem 'pry-byebug'
 gem 'pry-rails'
 gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

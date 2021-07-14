@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def new
     @post = Post.new
     @post.photos.build
@@ -14,6 +16,10 @@ class PostsController < ApplicationController
       flash[:danger] = "投稿に失敗しました。"
       render :new
     end
+  end
+
+  def show
+    @post = Post.find_by(id: params[:id])
   end
 
     private

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <div class="card my-5">
+      <%= image_tag @post.photos.first.image.url(:medium), class: "card-img-top" %>
+      
+      <small class="ms-2 mt-2 text-muted sm"><%= time_ago_in_words(@post.created_at).upcase %>前</small>
+      
+      <div id="post_<%= @post.id %>">
+        <%= render "like", post: @post %>
+      </div>
+
+      <hr>
+
+      <div class="card-body">
+        <%= @post.caption %>
+      </div>
+    </div>
+  </div>
+</div>
